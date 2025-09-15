@@ -7,4 +7,4 @@ void iniciarJuego();
 void multiplicarMatrices();
 bool isPalindrome(const string &text);
 void opcionPalindromo();
-void adminUsuarios();
+void adminUsuarios(const string& perfil);

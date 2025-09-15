@@ -7,6 +7,7 @@
 #include <algorithm>     // std::map
 #include "utils.h"
 #include "../common/user_utils.h" 
+#include <unistd.h>
 
 using namespace std;
 
@@ -41,7 +42,7 @@ map<string, vector<int>> cargarPerfiles(const string &ruta) {
     return perfiles;
 }
 
-// ------------------- Mostrar menú según permisos -------------------
+// ------------------- Mostrar menú según permisos -----------------
 void mostrarMenu(const string &usuario, const string &perfil, const map<string, vector<int>> &perfiles) {
     if (perfiles.find(perfil) == perfiles.end()) {
         cout << "⚠️ Perfil no encontrado en PERFILES.TXT\n";
@@ -79,7 +80,7 @@ void mostrarMenu(const string &usuario, const string &perfil, const map<string, 
         }
 
         switch (opcion) {
-            case 1: adminUsuarios(); break;
+            case 1: adminUsuarios(perfil); break;
             case 2: multiplicarMatrices(); break;
             case 3: iniciarJuego(); break;
             case 4: opcionPalindromo(); break;
@@ -99,6 +100,8 @@ int main(int argc, char* argv[]) {
     }
 
     string usuario, password;
+    cout<<endl;
+    cout << "PID del proceso principal: " << getpid() << endl;
 
     for (int i = 1; i < argc; i++) {
         string arg = argv[i];

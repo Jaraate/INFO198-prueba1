@@ -95,7 +95,11 @@ void opcionPalindromo() {
     }
 }
 
-void adminUsuarios() {
-    cout << "[ADMIN] Gestion de usuarios y perfiles (en construccion)\n";
+void adminUsuarios(const string& perfil) {
+    if (perfil == "ADMIN") {
+        system("cd ../entrega_1 && make && ./app");
+    } else {
+        cout << "Acceso denegado: solo usuarios admin pueden usar esta opcion." << endl;
+    }
 }
 
