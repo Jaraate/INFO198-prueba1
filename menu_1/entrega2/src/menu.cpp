@@ -27,9 +27,6 @@ map<string, vector<int>> cargarPerfiles(const string &ruta) {
         getline(ss, perfil, ';');     // ADMIN o GENERAL
         getline(ss, numeros);         // "0,1,2,3,4,5,6"
 
-        trim(perfil);
-        trim(numeros);
-
         stringstream sp(numeros);
         string num;
         vector<int> permisos;
