@@ -59,7 +59,20 @@ void iniciarJuego() {
 }
 
 void multiplicarMatrices() {
-    cout << "[Matrices] Multiplicacion de matrices NxN (en construccion)\n";
+    system("clear");
+    int N, opcion;
+    string path1, path2;
+    do{
+    cout << "Ingrese el N de la matriz: ";
+    cin >> N;
+    cout<< "Ingrese los path de los archivos:\n";
+    cout<< "Path 1: "; cin >> path1;
+    cout<< "Path 2: "; cin >> path2;
+    cout<< "Elija una opcion"<<endl;
+    cout<< "Ejecutar (1)        volver(2)";
+    cin>>opcion; 
+    }while(opcion!=1);
+    
 }
 
 bool isPalindrome(const string &text) {
