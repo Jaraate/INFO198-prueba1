@@ -1,5 +1,6 @@
 #include <iostream>
 #include "user.h"
+#include <unistd.h>
 
 using namespace std; 
 
@@ -13,6 +14,7 @@ int main(){
     cargarUsuariosLista(lista);
     system("clear");
     do {
+        cout << "PID del proceso principal: " << getpid() << endl;
         cout<<"--- Administrador de Usuarios ---"<< endl;
         cout<<"1. Ingresar usuario"<< endl;
         cout<<"2. Lista usuarios"<< endl;
