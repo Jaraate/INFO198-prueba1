@@ -10,6 +10,9 @@ using namespace std;
 typedef vector<vector<double>> Matriz;
 
 // Leer matriz desde archivo con validación de NxN
+
+// ./multi_matrices "A.txt" "B.txt" "#"
+
 Matriz leerMatriz(const string& ruta, char sep) {
     ifstream file(ruta);
     if (!file.is_open()) {

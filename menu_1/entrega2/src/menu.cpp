@@ -13,6 +13,8 @@ using namespace std;
 
 
 //escribir export USER_FILE=../data/USUARIOS.TXT
+//tambien escribir export ADMIN_SYS=../entrega_1
+//escribir export MUTLI_M=../matriz
 //para compilar make y despues ./bin/app2
 
 map<string, vector<int>> cargarPerfiles(const string &ruta) {

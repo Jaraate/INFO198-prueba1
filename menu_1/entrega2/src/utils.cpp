@@ -6,8 +6,10 @@
 #include <cctype>
 #include <algorithm>
 #include "utils.h"
+#include <filesystem>
+#include <cstdlib>
 
-
+namespace fs = std::filesystem; 
 using namespace std;
 
 void conteoTexto() {
@@ -62,18 +64,28 @@ void multiplicarMatrices() {
     system("clear");
     int N, opcion;
     string path1, path2;
-    do{
-    cout << "Ingrese el N de la matriz: ";
+
+    cout << "Ingrese el tamaño N de la matriz: ";
     cin >> N;
-    cout<< "Ingrese los path de los archivos:\n";
-    cout<< "Path 1: "; cin >> path1;
-    cout<< "Path 2: "; cin >> path2;
-    cout<< "Elija una opcion"<<endl;
-    cout<< "Ejecutar (1)        volver(2)";
-    cin>>opcion; 
-    }while(opcion!=1);
-    
+
+    cout << "Ingrese los path de los archivos:" << endl;
+    cout << "Path 1: "; cin >> path1;
+    cout << "Path 2: "; cin >> path2;
+
+    cout << "Elija una opción..."<<endl;
+    cout << "Ejecutar (1)        volver(2)" << endl;
+    cin >> opcion; 
+
+    if(opcion == 2){
+        cout << "Volviendo al menú principal..." << endl;
+        return;
+    }
+
+    if(!fs::exists(path1) || !fs::exists(path2)){
+        cout << "Error, uno de los archivos no existe u_u";
+    }
 }
+
 
 bool isPalindrome(const string &text) {
     string clean;
@@ -110,7 +122,17 @@ void opcionPalindromo() {
 
 void adminUsuarios(const string& perfil) {
     if (perfil == "ADMIN") {
-        system("cd ../entrega_1 && make && ./app");
+        const char* path = getenv("ADMIN_SYS");
+        //system("cd ../entrega_1 && make && ./app");
+        if (!path){
+            cout<<"ERROR: La variable de entorno ADMIN_SYS no está definida." << endl;
+            return;
+        }
+        string comando = "cd " + string(path) + " && make && ./app";
+        int result = system(comando.c_str());
+        if (result == -1) {
+            cout << "ERROR al ejecutar administrador de usuarios." << endl;
+        }
     } else {
         cout << "Acceso denegado: solo usuarios admin pueden usar esta opcion." << endl;
     }
