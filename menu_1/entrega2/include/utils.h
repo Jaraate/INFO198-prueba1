@@ -8,3 +8,4 @@ void multiplicarMatrices();
 bool isPalindrome(const string &text);
 void opcionPalindromo();
 void adminUsuarios(const string& perfil);
+void invertido_indice();

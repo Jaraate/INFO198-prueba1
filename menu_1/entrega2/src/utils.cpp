@@ -131,7 +131,6 @@ void opcionPalindromo() {
 void adminUsuarios(const string& perfil) {
     if (perfil == "ADMIN") {
         const char* path = getenv("ADMIN_SYS");
-        //system("cd ../entrega_1 && make && ./app");
         if (!path){
             cout<<"ERROR: La variable de entorno ADMIN_SYS no está definida." << endl;
             return;
@@ -146,3 +145,17 @@ void adminUsuarios(const string& perfil) {
     }
 }
 
+void invertido_indice(){
+    system("clear");
+    string archivo, path1, palabra;
+
+    cout<<"Ingrese el nombre del archivo a crear: ";
+    cin>> archivo;
+    cout<<"Ingrese la direccion de la carpeta de los libros: ";
+    cin>> path1;
+    if(!fs::exists(path1)){
+        cout << "Error, la carpeta no existe u_u";
+        return;
+    }
+    cout<<"Ingrese la palabra a buscar: ";
+}

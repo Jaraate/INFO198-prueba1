@@ -14,7 +14,7 @@ using namespace std;
 
 //escribir export USER_FILE=../data/USUARIOS.TXT
 //tambien escribir export ADMIN_SYS=../entrega_1
-//escribir export MUTLI_M=../matriz
+//escribir export MUTLI_M=../funcion_Matriz
 //para compilar make y despues ./bin/app2
 
 map<string, vector<int>> cargarPerfiles(const string &ruta) {
@@ -68,6 +68,7 @@ void mostrarMenu(const string &usuario, const string &perfil, const map<string, 
                 case 4: cout << "4) ¿Es palindromo?\n"; break;
                 case 5: cout << "5) Calcular f(x) = x*x + 2x + 8\n"; break;
                 case 6: cout << "6) Conteo sobre texto\n"; break;
+                case 7: cout << "7) Indice invertido\n"; break;
             }
         }
 
@@ -88,6 +89,7 @@ void mostrarMenu(const string &usuario, const string &perfil, const map<string, 
             case 4: opcionPalindromo(); break;
             case 5: calcularFuncion(); break;
             case 6: conteoTexto(); break;
+            case 7: invertido_indice(); break;
             case 0: cout << "Saliendo del programa...\n"; break;
         }
 
