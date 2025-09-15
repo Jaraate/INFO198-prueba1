@@ -2,7 +2,7 @@ CXX = g++
 
 CXXFLAGS = -Wall -std=c++17
 
-TARGET = multi_matrices
+TARGET = mult_matrices
 
 SRC = mult_matrices.cpp
 

@@ -62,11 +62,8 @@ void iniciarJuego() {
 
 void multiplicarMatrices() {
     system("clear");
-    int N, opcion;
+    int opcion;
     string path1, path2;
-
-    cout << "Ingrese el tamaño N de la matriz: ";
-    cin >> N;
 
     cout << "Ingrese los path de los archivos:" << endl;
     cout << "Path 1: "; cin >> path1;
@@ -83,7 +80,18 @@ void multiplicarMatrices() {
 
     if(!fs::exists(path1) || !fs::exists(path2)){
         cout << "Error, uno de los archivos no existe u_u";
+        return;
     }
+    const char* path = getenv("MUTLI_M");
+    if (!path){
+            cout<<"ERROR: La variable de entorno ADMIN_SYS no está definida." << endl;
+            return;
+        }
+    string comando = "cd " + string(path) + " && make && ./mult_matrices \"" + path1 + "\" \"" + path2 + "\" \"#\"";
+    int result = system(comando.c_str());
+    if (result == -1) {
+            cout << "ERROR al ejecutar el multiplicador de matrices" << endl;
+        }
 }
 
 

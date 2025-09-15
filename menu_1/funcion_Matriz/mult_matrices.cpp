@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <stdexcept>
+#include <unistd.h> 
 
 using namespace std;
 
@@ -86,6 +87,8 @@ int main(int argc, char* argv[]) {
     string rutaA = argv[1];
     string rutaB = argv[2];
     char separador = argv[3][0]; // solo primer caracter
+    system("clear");
+    cout << "PID del proceso principal: " << getpid() << endl;
 
     try {
         Matriz A = leerMatriz(rutaA, separador);
