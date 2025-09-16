@@ -145,9 +145,11 @@ void adminUsuarios(const string& perfil) {
     }
 }
 
+
+
 void invertido_indice(){
     system("clear");
-    string archivo, path1, palabra;
+    string archivo, path1;
 
     cout<<"Ingrese el nombre del archivo a crear: ";
     cin>> archivo;
@@ -165,7 +167,7 @@ void invertido_indice(){
         cout << "Error, la carpeta no existe u_u o no es un directorio";
         return;
     }
-    cout<<"Ingrese la palabra a buscar: ";
+    
 
     //Llamar indice invertido
     const char* path = getenv("CREATE_INDEX");
@@ -173,7 +175,8 @@ void invertido_indice(){
         cout << "Error, variable de entorno CREATE_INDEX no definida" << endl;
         return;
     }
-    string comando = string(path) + " " + archivo + " " + path1;
+    string comando = "cd " + string(path) + " && make && ./bin/creaIndice " + archivo + " " + path1;
+    cout<<comando;
     int status = system(comando.c_str());
 
     if (status == -1) {

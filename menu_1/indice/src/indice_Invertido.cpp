@@ -40,7 +40,6 @@ int main(int argc, char* argv[]){
         cerr << "Error, la carpeta no existe u_u" << endl;
         return 1;
     }
-
     //mapa
     map<string, map<string,int>> indice;
 
