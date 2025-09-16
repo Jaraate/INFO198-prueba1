@@ -32,7 +32,9 @@ El menú es interactivo e intuitivo, adaptándose automáticamente según el tip
  export MUTLI_M=../funcion_Matriz
  export CREATE_INDEX=../índice
 
-3- Ejecutar el programa 
+3- Realizar make
+
+4- Ejecutar el programa 
  ./bin/app2 -u <username> -p <password>
  reemplazando <username> y <password> por las variables de acceso.
  Si ingresas con un perfil admin, tendrás acceso al menú de usuarios además de las funciones generales.
