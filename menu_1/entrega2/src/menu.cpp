@@ -47,7 +47,7 @@ map<string, vector<int>> cargarPerfiles(const string &ruta) {
 // ------------------- Mostrar menú según permisos -----------------
 void mostrarMenu(const string &usuario, const string &perfil, const map<string, vector<int>> &perfiles) {
     if (perfiles.find(perfil) == perfiles.end()) {
-        cout << "⚠️ Perfil no encontrado en PERFILES.TXT\n";
+        cout << "Perfil no encontrado en PERFILES.TXT" << endl;
         return;
     }
 
@@ -78,7 +78,7 @@ void mostrarMenu(const string &usuario, const string &perfil, const map<string, 
         cin.ignore();
 
         if (find(permisos.begin(), permisos.end(), opcion) == permisos.end()) {
-            cout << "⚠️ No tienes permiso para esta opción.\n";
+            cout << "No tienes permiso para esta opción." << endl;
             continue;
         }
 
