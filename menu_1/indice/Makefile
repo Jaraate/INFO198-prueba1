@@ -7,7 +7,7 @@ SRC_DIR = src
 BIN_DIR = bin
 
 # Archivos fuente y ejecutable
-SOURCES = $(SRC_DIR)/main.cpp
+SOURCES = $(SRC_DIR)/indice_Invertido.cpp
 TARGET = $(BIN_DIR)/creaIndice
 
 # Regla principal

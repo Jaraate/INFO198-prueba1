@@ -151,11 +151,34 @@ void invertido_indice(){
 
     cout<<"Ingrese el nombre del archivo a crear: ";
     cin>> archivo;
+    if (archivo.empty()){
+        cout<<"Error, el nombre no debe estar vacio";
+        return;
+    }
+    if (archivo.size() < 4 || archivo.substr(archivo.size() - 4) != ".idx"){
+        cout<<"Error, el archivo debe tener la extension .idx"<<endl;
+        return;
+    }
     cout<<"Ingrese la direccion de la carpeta de los libros: ";
     cin>> path1;
-    if(!fs::exists(path1)){
-        cout << "Error, la carpeta no existe u_u";
+    if(!fs::exists(path1) || !fs::is_directory(path1)){
+        cout << "Error, la carpeta no existe u_u o no es un directorio";
         return;
     }
     cout<<"Ingrese la palabra a buscar: ";
+
+    //Llamar indice invertido
+    const char* path = getenv("CREATE_INDEX");
+    if(path==nullptr){
+        cout << "Error, variable de entorno CREATE_INDEX no definida" << endl;
+        return;
+    }
+    string comando = string(path) + " " + archivo + " " + path1;
+    int status = system(comando.c_str());
+
+    if (status == -1) {
+            cout << "ERROR al ejecutar el indice invertido" << endl;
+        }
+
+
 }
