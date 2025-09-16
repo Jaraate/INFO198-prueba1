@@ -12,10 +12,7 @@
 using namespace std;
 
 
-//escribir export USER_FILE=../data/USUARIOS.TXT
-//tambien escribir export ADMIN_SYS=../entrega_1
-//escribir export MUTLI_M=../funcion_Matriz
-//para compilar make y despues ./bin/app2
+
 
 map<string, vector<int>> cargarPerfiles(const string &ruta) {
     map<string, vector<int>> perfiles;
@@ -27,7 +24,7 @@ map<string, vector<int>> cargarPerfiles(const string &ruta) {
         stringstream ss(linea);
 
         getline(ss, perfil, ';');     // ADMIN o GENERAL
-        getline(ss, numeros);         // "0,1,2,3,4,5,6"
+        getline(ss, numeros);         // 0,1,2,3,4,5,6
 
         stringstream sp(numeros);
         string num;
@@ -44,7 +41,7 @@ map<string, vector<int>> cargarPerfiles(const string &ruta) {
     return perfiles;
 }
 
-// ------------------- Mostrar menú según permisos -----------------
+
 void mostrarMenu(const string &usuario, const string &perfil, const map<string, vector<int>> &perfiles) {
     if (perfiles.find(perfil) == perfiles.end()) {
         cout << "Perfil no encontrado en PERFILES.TXT" << endl;
@@ -53,8 +50,12 @@ void mostrarMenu(const string &usuario, const string &perfil, const map<string, 
 
     vector<int> permisos = perfiles.at(perfil);
     int opcion;
-
+    system("clear");
     do {
+        cout<<endl;
+        cout<<"-----------------------------------";
+        cout<<endl;
+        cout << "PID del proceso principal: " << getpid() << endl;
         cout << "\n===== MENU PRINCIPAL =====\n";
         cout << "Usuario: " << usuario << " | Perfil: " << perfil << "\n";
         cout << "--------------------------\n";
@@ -96,16 +97,14 @@ void mostrarMenu(const string &usuario, const string &perfil, const map<string, 
     } while (opcion != 0);
 }
 
-// ------------------- Main -------------------
+
 int main(int argc, char* argv[]) {
     if (argc < 5) {
         cout << "Uso: ./app2 -u <usuario> -p <password>\n";
         return 1;
     }
-
     string usuario, password;
     cout<<endl;
-    cout << "PID del proceso principal: " << getpid() << endl;
 
     for (int i = 1; i < argc; i++) {
         string arg = argv[i];
@@ -114,7 +113,7 @@ int main(int argc, char* argv[]) {
     }
 
     ListaUser lista;
-    cargarUsuariosLista(lista);  // ya la tienes implementada
+    cargarUsuariosLista(lista);  
     auto perfiles = cargarPerfiles("../data/PERFILES.TXT");
 
     bool loginExitoso = false;
@@ -128,7 +127,7 @@ int main(int argc, char* argv[]) {
     }
 
     if (!loginExitoso) {
-        cout << "❌ Usuario o contraseña inválidos.\n";
+        cout << "Usuario o contraseña inválidos.\n";
     }
 
     return 0;

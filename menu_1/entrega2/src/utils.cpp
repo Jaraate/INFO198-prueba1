@@ -13,6 +13,7 @@ namespace fs = std::filesystem;
 using namespace std;
 
 void conteoTexto() {
+    system("clear");
     cout << "\n--- Conteo sobre texto ---\n";
     cout << "Ingrese un texto: ";
     string texto;
@@ -47,6 +48,7 @@ void conteoTexto() {
 }
 
 void calcularFuncion() {
+    system("clear");
     cout << "\n--- Calculo de f(x) = x*x + 2x + 8 ---\n";
     cout << "Ingrese un valor para x: ";
     double x;
@@ -57,6 +59,7 @@ void calcularFuncion() {
 }
 
 void iniciarJuego() {
+    system("clear");
     cout << "[Juego] Módulo en construccion\n";
 }
 
@@ -108,6 +111,7 @@ bool isPalindrome(const string &text) {
 }
 
 void opcionPalindromo() {
+    system("clear");
     cout << "\n--- Verificar Palindromo ---\n";
     cout << "Ingrese un texto: ";
     string texto;
@@ -120,9 +124,9 @@ void opcionPalindromo() {
 
     if (subop == 1) {
         if (isPalindrome(texto))
-            cout << "✅ Es un palindromo.\n";
+            cout << "Es un palindromo.\n";
         else
-            cout << "❌ No es un palindromo.\n";
+            cout << "No es un palindromo.\n";
     } else {
         cout << "Operacion cancelada.\n";
     }
@@ -176,7 +180,6 @@ void invertido_indice(){
         return;
     }
     string comando = "cd " + string(path) + " && make && ./bin/creaIndice " + archivo + " " + path1;
-    cout<<comando;
     int status = system(comando.c_str());
 
     if (status == -1) {

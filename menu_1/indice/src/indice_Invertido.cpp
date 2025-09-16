@@ -59,7 +59,6 @@ int main(int argc, char* argv[]){
         }
     }
 
-    //indice invertido en idx
     ofstream fout(idxFile);
     if(!fout){
         cerr << "Error al crear el archivo " << idxFile << " :(" << endl;
